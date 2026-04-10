@@ -1,0 +1,14 @@
+
+/node_modules
+/.pnp
+.pnp.js
+dist/
+
+
+.env.local
+.env.test.local
+
+
+
+.DS_Store
+Thumbs.db
