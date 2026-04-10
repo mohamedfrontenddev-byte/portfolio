@@ -1,0 +1,169 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #020617; /* لون كحلي غامق جداً للفخامة */
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15) 0%, transparent 50%);
+  animation: entrance 1s ease-out;
+}
+
+
+h4 {
+  font-weight: 400;
+  color: #38bdf8; 
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(to bottom, #fff 40%, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+
+.btns {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.btn, .btn-sucses {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: #38bdf8;
+  color: #020617;
+}
+
+.btn-sucses {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-primary:hover, .btn-sucses:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.bg {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  gap: 35px; /* المسافة اللي طلبتها بين الصورة والزر */
+}
+
+.bg img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
+  border: 2px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: morphing 8s infinite alternate ease-in-out, floating 4s infinite ease-in-out;
+  transition: 0.5s ease;
+}
+
+.bg img:hover {
+  filter: grayscale(0);
+  border-color: #38bdf8;
+  transform: scale(1.05);
+}
+
+
+.show-btn {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.show-btn:hover {
+  background: #fff;
+  color: #020617;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+
+.section-anim {
+  width: 100%;
+  padding: 50px 0;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+
+@keyframes entrance {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes morphing {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  100% { border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(100px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 480px) {
+  .bg img { width: 220px; height: 220px; }
+  h1 { font-size: 3rem; }
+}

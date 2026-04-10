@@ -1,0 +1,120 @@
+
+.services-section {
+  padding: 80px 5%;
+  background: #020617; 
+  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.1) 0%, #020617 70%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.main-title {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 60px;
+  background: linear-gradient(to bottom, #fff 40%, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+/* شبكة المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+.project-card {
+  background: rgba(255, 255, 255, 0.02); 
+  backdrop-filter: blur(12px); 
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(56, 189, 248, 0.4); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  font-weight: 600;
+  line-height: 1.6;
+  min-height: 3.2em; /* لتوحيد المسافات */
+}
+
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+
+.btn {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+  flex: 1;
+  text-align: center;
+}
+
+.btn-view {
+  background: #38bdf8; 
+  color: #020617;
+}
+
+.btn-view:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+.btn-github {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.btn-github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+}
