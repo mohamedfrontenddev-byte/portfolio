@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import './Home.css'
-import bg from '../../assts/bg.jpeg'
-import cv from '../../assts/cv.pdf'
+import bg from '../../assets/bg.jpeg'
+import cv from '../../assets/cv.pdf'
 import Services from '../Services/Services'
 import Footer from '../Footer/Footer'
 
@@ -33,7 +33,7 @@ const Home = () => {
 
         </div>
 
-        {/* الصورة + زر مشاهده المزيد */}
+        
         <div className='bg'>
           <img src={bg} alt='' className='img-anim' />
 

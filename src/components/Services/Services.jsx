@@ -1,12 +1,10 @@
 import React from 'react';
 import './Services.css'; 
 
-// استيراد الصور
-import img1 from '../../assts/img1.png';
-import img2 from '../../assts/img2.png';
-import img3 from '../../assts/prayar.png';
-import img4 from '../../assts/img4.jpeg';
-import img5 from '../../assts/metal.png';
+import img1 from '../../assets/img1.jpeg';
+import img2 from '../../assets/img2.jpeg';
+import img3 from '../../assets/prayar.png';
+import img4 from '../../assets/img4.jpeg';
 
 const Services = () => {
   
@@ -14,46 +12,33 @@ const Services = () => {
   const projects = [
     { 
       id: 1, 
-      title: "نظام إدارة بيانات احترافي (CRUD System)", 
+      title: "نظام إدارة بيانات احترافي (task management system)", 
       img: img1, 
-      Github: "https://github.com/mohamedfrontenddev-byte/data.git",
-      Demo: " Learn more about redirects" 
+      Github: "https://github.com/mohamedfrontenddev-byte/TaskManagenmentDashboard",
+      Demo: "https://mohamedfrontenddev-byte.github.io/TaskManagenmentDashboard " 
     },
     { 
       id: 2, 
-      title: "منصة Doctor الطبية المتكاملة", 
+      title: "StockSyncسستم ادارة مبيعات", 
       img: img2, 
-      Github: "#",
-      Demo: "#" 
+      Github: "https://github.com/mohamedfrontenddev-byte/StockSync",
+      Demo: "https://mohamedfrontenddev-byte.github.io/StockSync" 
     },
     { 
       id: 3, 
       title: "تطبيق مواقيت الصلاة (Prayar App)", 
       img: img3,
-      Github: "#",
-      Demo: "#"
+      Github: "https://github.com/mohamedfrontenddev-byte/Prayar-App",
+      Demo: "https://mohamedfrontenddev-byte.github.io/Prayar-App/"
     },
-    { 
-      id: 4, 
-      title: "مشروع واجهة مستخدم حديثة 4", 
+     { 
+      id: 3, 
+      title:"متجرالاليكتروني", 
       img: img4,
-      Github: "#",
-      Demo: "#"
+      Github: "https://github.com/mohamedfrontenddev-byte/m.play.git",
+      Demo: "https://mohamedfrontenddev-byte.github.io/m.play"
     },
-    { 
-      id: 5, 
-      title: "تطبيق إدارة المهام Metal", 
-      img: img5,
-      Github: "#",
-      Demo: "#"
-    },
-    { 
-      id: 6, 
-      title: "مشروع استعراضي 6", 
-      img: img2,
-      Github: "#",
-      Demo: "#"
-    },
+ 
   ];
 
   return (
@@ -64,7 +49,6 @@ const Services = () => {
         {projects.map((project) => (
           <div key={project.id} className="project-card">
             
-            {/* منطقة الصورة مع تأثير الزووم في الـ CSS */}
             <div className="img-container">
               <img src={project.img} alt={project.title} className="project-img" />
             </div>
@@ -73,7 +57,7 @@ const Services = () => {
               <h3>{project.title}</h3>
               
               <div className="button-group">
-                {/* زر المعاينة الحية */}
+
                 <a 
                   href={project.Demo} 
                   target="_blank" 

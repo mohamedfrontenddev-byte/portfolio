@@ -24,8 +24,9 @@ const Footer = () => {
             <a href="https://github.com/mohamedfrontenddev-byte" target="_blank" rel="noreferrer" aria-label="Github">
               <FaGithub />
             </a>
-            <a href="mohamed.frontend.dev@gmail.com" target='blank' aria-label="Email">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mohamed.frontend.dev@gmail.com" target='_blank' rel="noopener noreferrer" aria-label="Email">
               <FaEnvelope />
+     
             </a>
             <a href="" target="_blank" rel="noreferrer" aria-label="Linkedin">
               <FaLinkedin />
