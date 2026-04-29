@@ -1,88 +1,127 @@
-import React from 'react';
-import './Services.css'; 
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import "./Services.css";
 
-import img1 from '../../assets/img1.jpeg';
-import img2 from '../../assets/img2.jpeg';
-import img3 from '../../assets/prayar.png';
-import img4 from '../../assets/img4.jpeg';
+import img1 from "../../assets/img1.jpeg";
+import img2 from "../../assets/img2.jpeg";
+import img3 from "../../assets/prayar.png";
+import img4 from "../../assets/img4.jpeg";
 
-const Services = () => {
-  
-  // بيانات المشاريع
-  const projects = [
-    { 
-      id: 1, 
-      title: "نظام إدارة بيانات احترافي (task management system)", 
-      img: img1, 
-      Github: "https://github.com/mohamedfrontenddev-byte/TaskManagenmentDashboard",
-      Demo: "https://mohamedfrontenddev-byte.github.io/TaskManagenmentDashboard " 
-    },
-    { 
-      id: 2, 
-      title: "StockSyncسستم ادارة مبيعات", 
-      img: img2, 
-      Github: "https://github.com/mohamedfrontenddev-byte/StockSync",
-      Demo: "https://mohamedfrontenddev-byte.github.io/StockSync" 
-    },
-    { 
-      id: 3, 
-      title: "تطبيق مواقيت الصلاة (Prayar App)", 
-      img: img3,
-      Github: "https://github.com/mohamedfrontenddev-byte/Prayar-App",
-      Demo: "https://mohamedfrontenddev-byte.github.io/Prayar-App/"
-    },
-     { 
-      id: 3, 
-      title:"متجرالاليكتروني", 
-      img: img4,
-      Github: "https://github.com/mohamedfrontenddev-byte/m.play.git",
-      Demo: "https://mohamedfrontenddev-byte.github.io/m.play"
-    },
- 
-  ];
+const projects = [
+  {
+    id: 1,
+    title: "Task Management System",
+    desc: "React dashboard with real-time analytics and drag & drop features.",
+    tech: "React • Redux • SCSS",
+    img: img1,
+    github: "https://github.com/mohamedfrontenddev-byte/TaskManagenmentDashboard",
+    demo: "https://mohamedfrontenddev-byte.github.io/TaskManagenmentDashboard",
+  },
+  {
+    id: 2,
+    title: "StockSync System",
+    desc: "Smart inventory system with modern UI and API integration.",
+    tech: "React • API • UI",
+    img: img2,
+    github: "https://github.com/mohamedfrontenddev-byte/StockSync",
+    demo: "https://mohamedfrontenddev-byte.github.io/StockSync",
+  },
+  {
+    id: 3,
+    title: "Prayer App",
+    desc: "Location-based prayer times with clean UX.",
+    tech: "JavaScript • API",
+    img: img3,
+    github: "https://github.com/mohamedfrontenddev-byte/Prayar-App",
+    demo: "https://mohamedfrontenddev-byte.github.io/Prayar-App/",
+  },
+  {
+    id: 4,
+    title: "E-Commerce Store",
+    desc: "Modern shopping experience with cart system.",
+    tech: "React • Front-End",
+    img: img4,
+    github: "https://github.com/mohamedfrontenddev-byte/m.play.git",
+    demo: "https://mohamedfrontenddev-byte.github.io/m.play",
+  },
+];
+
+export default function Services() {
+  const [active, setActive] = useState(null);
 
   return (
-    <section className="services-section">
-      <h1 className="main-title"> Projects</h1>
-      
-      <div className="projects-grid">
-        {projects.map((project) => (
-          <div key={project.id} className="project-card">
-            
-            <div className="img-container">
-              <img src={project.img} alt={project.title} className="project-img" />
+    <section className="services">
+      {/* HEADER */}
+      <div className="header">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Featured Projects
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.7 }}
+        >
+          React • JavaScript • Front-End Development
+        </motion.p>
+      </div>
+
+      {/* GRID */}
+      <div className="grid">
+        {projects.map((p, i) => (
+          <motion.div
+            key={p.id}
+            className={`card ${active === i ? "active" : ""}`}
+            onMouseEnter={() => setActive(i)}
+            onMouseLeave={() => setActive(null)}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ scale: 1.03 }}
+          >
+            {/* IMAGE */}
+            <div className="img-box">
+              <img src={p.img} alt={p.title} />
+
+              <div className="overlay">
+                <span>View Project</span>
+              </div>
             </div>
 
-            <div className="card-body">
-              <h3>{project.title}</h3>
-              
-              <div className="button-group">
+            {/* CONTENT */}
+            <div className="content">
+              <h3>{p.title}</h3>
+              <p>{p.desc}</p>
 
-                <a 
-                  href={project.Demo} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-view"
+              <span className="tech">{p.tech}</span>
+
+              {/* BUTTONS */}
+              <div className="actions">
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn live"
                 >
                   Live Demo
                 </a>
-                
-                <a 
-                  href={project.Github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="btn btn-github"
+
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn github"
                 >
                   GitHub
                 </a>
               </div>
             </div>
-
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
   );
-};
-
-export default Services;
+}

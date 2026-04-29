@@ -1,0 +1,80 @@
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #020617;
+
+  .bg3d {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      filter: blur(2px);
+    }
+
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      color: #fff;
+
+      span {
+        opacity: 0.6;
+      }
+
+      h1 {
+        font-size: 60px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      p {
+        margin-top: 10px;
+        max-width: 400px;
+      }
+
+      .nav {
+        margin-top: 20px;
+
+        button {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .progress {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, cyan, blue);
+    }
+  }
+}
+
+.magnetic {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: white;
+  border: none;
+  cursor: pointer;
+}
