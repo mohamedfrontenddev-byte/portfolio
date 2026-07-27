@@ -7,15 +7,72 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent horizontal scroll caused by oversized elements (animated
+       glows, floating badges, etc.) while still allowing the document to
+       scroll vertically. */
+    overflow-x: hidden;
+    /* Reasonable base size for small mobile (e.g. 360px Samsung devices). */
+    -webkit-text-size-adjust: 100%;
+    /* Respect the iPhone notch / status bar by giving the fixed navbar
+       some breathing room from the top. */
+    scroll-padding-top: env(safe-area-inset-top, 0);
   }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
     @apply antialiased;
+    /* Belt-and-suspenders: keep the body itself from producing a horizontal
+       scrollbar even if a child element overflows. */
+    overflow-x: hidden;
+    /* Hint browsers to use logical properties where supported. */
+  }
+
+  /* Make every element include padding/border in width calculations so
+     flex/grid children never push past their parent on small screens. */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Long words, URLs, and email addresses must wrap inside their
+     containers on small mobile widths. */
+  body,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  a,
+  span,
+  button,
+  div {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   ::selection {
     @apply bg-primary-500/30 text-primary-900 dark:text-primary-100;
+  }
+
+  /* Mobile-only: on touch devices the cursor-following glow is meaningless
+     and the dot is rendered at (0,0) which looks broken. Hide it entirely. */
+  @media (hover: none) and (pointer: coarse) {
+    .mouse-glow {
+      display: none !important;
+    }
+  }
+
+  /* Mobile-only: keep the dynamic viewport unit available for sections
+     that want to span exactly the visible mobile height (iOS Safari
+     hides the address bar on scroll, so 100vh > viewport). */
+  @supports (height: 100dvh) {
+    .min-h-mobile {
+      min-height: 100dvh;
+    }
   }
 }
 
@@ -60,5 +117,24 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Mobile-only: ensure tap targets meet the 44px iOS / 48dp Material
+     recommendation. Applied at the wrapper level so children stay small
+     but the hit area grows. */
+  .touch-target {
+    position: relative;
+  }
+  .touch-target::before {
+    content: '';
+    position: absolute;
+    inset: -0.5rem;
+    z-index: 0;
+  }
+
+  /* Mobile-only: cap orb backgrounds so they can never push the page
+     wider than the viewport. */
+  .max-w-screen {
+    max-width: 100vw;
   }
 }

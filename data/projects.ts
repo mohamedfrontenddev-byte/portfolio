@@ -100,9 +100,27 @@ export const projects: Project[] = [
     "shadcn/ui",
     "Clerk",
     "Zustand",
+    "React Query",
   ],
   liveDemo: "https://book-med.vercel.app",
   github: "https://github.com/mohamedfrontenddev-byte/BookMed",
+},
+{
+  id: 6,
+  title: "Creative Digital Agency",
+  titleAr: "وكالة إبداعية للتسويق والخدمات الرقمية",
+  description:
+    "A modern and fully responsive digital agency website built with HTML, CSS, and JavaScript. It features a clean design, smooth animations, interactive sections, and a user-friendly experience that showcases digital services in a professional way.",
+  descriptionAr:
+    "موقع حديث ومتجاوب بالكامل لوكالة رقمية، تم تطويره باستخدام HTML وCSS وJavaScript. يتميز بتصميم احترافي، وحركات سلسة، وأقسام تفاعلية، وتجربة استخدام مريحة لعرض الخدمات الرقمية بشكل احترافي.",
+  image: "/creative.png",
+  technologies: [
+    "HTML5",
+    "CSS3",
+    "JavaScript"
+  ],
+  liveDemo: "https://creative-digital-agency-eight.vercel.app",
+  github: "https://github.com/mohamedfrontenddev-byte/Creative-Digital-Agency.git",
 },
 
 ];

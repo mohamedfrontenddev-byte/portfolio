@@ -8,6 +8,12 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      screens: {
+        // Extra-small breakpoint for very narrow mobile devices
+        // (e.g. 360px wide Samsung phones).  xs = 420px so it kicks in
+        // before the default sm (640px).
+        xs: '420px',
+      },
       colors: {
         primary: {
           50: '#eff6ff',

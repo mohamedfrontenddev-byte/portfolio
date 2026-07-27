@@ -58,53 +58,56 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'glass-strong shadow-lg py-3'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto section-padding flex items-center justify-between">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 flex items-center justify-between gap-2 sm:gap-3">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform">
+        <Link href="/" className="flex items-center gap-2 group min-w-0">
+          <div className="shrink-0 aspect-square w-9 sm:w-10 rounded-xl bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg shadow-primary-500/30 group-hover:scale-110 transition-transform">
             M
           </div>
-          <span className="text-xl font-bold gradient-text">
+          <span className="text-base sm:text-xl font-bold gradient-text truncate max-w-[7.5rem] xs:max-w-[10rem] sm:max-w-none">
             Mohamed Allam
           </span>
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-1 min-w-0">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-all"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-all whitespace-nowrap"
             >
               {t(link.key)}
             </a>
           ))}
           <a
             href="/cv/"
-            className="px-4 py-2 rounded-lg text-sm font-medium text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-all flex items-center gap-1.5"
+            className="px-4 py-2 rounded-lg text-sm font-medium text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-all flex items-center gap-1.5 whitespace-nowrap"
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-4 h-4 shrink-0" />
             {t('nav.cv')}
           </a>
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2">
+        {/* Actions — shrink-0 keeps them anchored, the row uses a fluid
+            gap so the buttons never push the logo off-screen. */}
+        <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors text-gray-600 dark:text-gray-300"
+            className="p-2.5 sm:p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors text-gray-600 dark:text-gray-300 flex items-center gap-1 min-w-[2.75rem] min-h-[2.75rem] sm:min-w-0 sm:min-h-0 justify-center"
             title={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
+            aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
           >
-            <Globe className="w-5 h-5" />
-            <span className="ml-1 text-sm font-medium">
+            <Globe className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+            <span className="text-xs sm:text-sm font-medium">
               {language === 'en' ? 'AR' : 'EN'}
             </span>
           </button>
@@ -112,13 +115,14 @@ export default function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors text-gray-600 dark:text-gray-300"
+            className="p-2.5 sm:p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors text-gray-600 dark:text-gray-300 min-w-[2.75rem] min-h-[2.75rem] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
             title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+            aria-label={theme === 'dark' ? 'Light mode' : 'Dark mode'}
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5" />
+              <Sun className="w-4 h-4 sm:w-5 sm:h-5" />
             ) : (
-              <Moon className="w-5 h-5" />
+              <Moon className="w-4 h-4 sm:w-5 sm:h-5" />
             )}
           </button>
 
@@ -127,8 +131,9 @@ export default function Navbar() {
             type="button"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             onClick={toggleMobileMenu}
-            className="md:hidden relative z-[60] p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors"
+            className="md:hidden relative z-[60] p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-dark-surface transition-colors min-w-[2.75rem] min-h-[2.75rem] flex items-center justify-center"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -139,19 +144,20 @@ export default function Navbar() {
       {mobileOpen && (
         <motion.div
           id="mobile-menu"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
           className="md:hidden relative z-[60] glass-strong border-t border-gray-200 dark:border-dark-border overflow-hidden"
+          style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}
         >
-          <div className="px-4 py-4 space-y-2">
+          <div className="px-4 py-4 space-y-1.5 max-w-full">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-dark-surface transition-colors font-medium"
+                className="block px-4 py-3 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-dark-surface transition-colors font-medium truncate"
               >
                 {t(link.key)}
               </a>
@@ -159,10 +165,10 @@ export default function Navbar() {
             <a
               href="/cv/"
               onClick={() => setMobileOpen(false)}
-              className="px-4 py-3 rounded-xl text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-colors font-medium flex items-center gap-2"
+              className="px-4 py-3 rounded-xl text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-dark-surface transition-colors font-medium flex items-center gap-2 truncate"
             >
-              <FileText className="w-4 h-4" />
-              {t('nav.cv')}
+              <FileText className="w-4 h-4 flex-shrink-0" />
+              <span className="truncate">{t('nav.cv')}</span>
             </a>
           </div>
         </motion.div>

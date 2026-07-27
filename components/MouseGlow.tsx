@@ -34,7 +34,7 @@ export default function MouseGlow() {
 
  return (
   <motion.div
-    className="pointer-events-none fixed top-0 left-0 z-[100]"
+    className="mouse-glow pointer-events-none fixed top-0 left-0 z-[100] hidden md:block"
     style={{
       x: springX,
       y: springY,

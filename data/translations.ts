@@ -34,7 +34,7 @@ export const translations = {
     // About
     'about.title': 'About Me',
     'about.subtitle': 'Get to know me',
-    'about.description': 'Front-End Developer specializing in building modern, fast, and responsive user interfaces using React and Next.js. I focus on clean code, responsive design, modern UI, and exceptional user experience.',
+    'about.description': 'I focus on building front-end applications that deliver excellent performance, intuitive user experiences, and long-term scalability. I follow best practices to write clean, maintainable code and collaborate effectively with development teams to create reliable, high-quality product',
     'about.cleanCode': 'Clean Code',
     'about.responsive': 'Responsive Design',
     'about.modernUI': 'Modern UI',
@@ -113,7 +113,7 @@ export const translations = {
     // About
     'about.title': 'نبذة عنّي',
     'about.subtitle': 'تعرف علي',
-    'about.description': 'مطور واجهة أمامية متخصص في بناء واجهات مستخدم حديثة وسريعة ومتجاوبة باستخدام React وNext.js. أركز على الكود النظيف، التصميم المتجاوب، واجهة المستخدم الحديثة، وتجربة المستخدم الممتازة.',
+    'about.description': 'أعمل على بناء واجهات أمامية تجمع بين الأداء، وسهولة الاستخدام، وقابلية التوسع، مع الالتزام بأفضل الممارسات في كتابة الكود والتعاون داخل فرق التطوير لإنتاج تطبيقات موثوقة وعالية الجودة.',
     'about.cleanCode': 'كود نظيف',
     'about.responsive': 'تصميم متجاوب',
     'about.modernUI': 'واجهة حديثة',
